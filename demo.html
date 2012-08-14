@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery Big Dialog</title>
+	<style type="text/css">
+		body{ font-family: Arial, Verdana, sans-serif }
+	</style>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="jquery.bigDialog.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('<div id="bigDialog">Hello World!</div>').bigDialog({
+				modal:true,
+				title: "jQuery Big Dialog"
+			});
+		})
+
+		function openBigDialog(){
+			$('#bigDialog').dialog('open');
+		}
+	</script>
+</head>
+<body>
+	<h1>jQuery Big Dialog Demo</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ligula leo, imperdiet adipiscing suscipit sit amet, ullamcorper sit amet urna. Duis a nunc nec ante ullamcorper gravida. Donec adipiscing fermentum hendrerit. In laoreet ullamcorper nunc, et lacinia metus rutrum non. Integer ante nibh, vulputate sed commodo tincidunt, ultrices non magna. Cras nisi ligula, tincidunt quis viverra in, posuere a diam. In tempus, sapien eleifend tristique aliquam, ante nulla ultricies mi, nec accumsan sapien enim eget quam. Suspendisse pretium, felis quis accumsan egestas, felis arcu pulvinar velit, vel auctor urna erat quis leo.</p>
+	<p>Ut ac odio a ipsum imperdiet hendrerit a at lacus. Fusce in massa felis. Nam vel mi felis, ut posuere lectus. Nam porta consectetur nibh et tempus. Suspendisse euismod dui quis ipsum condimentum malesuada. Curabitur ut velit ut metus molestie molestie. Sed porta nunc vel odio cursus interdum. Suspendisse ut lorem arcu. Quisque eget lectus nec tellus congue rutrum sit amet non nulla. Sed blandit tempor leo, eu placerat tortor mollis non. Mauris non augue sapien, in suscipit sem. Mauris convallis viverra nibh, ut tincidunt libero vestibulum in. Curabitur eu magna sapien, nec euismod erat. Integer quis purus nisl, eu rhoncus quam.</p>
+	<p>Vivamus elementum interdum lectus, sit amet luctus odio dictum vel. Nulla eget cursus diam. Vivamus egestas nunc vel tellus ullamcorper rutrum. Nam venenatis semper arcu sed blandit. Integer molestie congue turpis, vitae placerat magna imperdiet sodales. Nulla consequat dictum libero in accumsan. Suspendisse mi urna, viverra at aliquam ac, tempus varius neque.</p>
+	<a href="javascript:void(0)" onclick="openBigDialog()">Open Big Dialog</a>
+</body>
+</html>
