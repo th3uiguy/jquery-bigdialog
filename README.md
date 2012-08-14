@@ -10,10 +10,10 @@ jQuery Big Dialog scales to fit the full size of the screen with widow resize ha
 	verticalPadding: 80, //padding on top and bottom of dialog
 	horizontalPadding: 80, //padding on left and right (40 + 40 = 80 total)
 	scrollLock: true, //stop parent window from scrolling when dialog is open
-	scaleIframe: true, //if the dialog has an iframe as a child it will scale this
+	scaleIframe: true, //if the dialog has an iframe as a child it will the iframe
 	verticalOffset: 55 //amount to subtract to compensate for the dialogs title and button bars (when dialog has an iframe)
 
 Copyright 2011, Spencer Neese   
 Dual licensed under the MIT or GPL Version 2 licenses.   
-https://github.com/th3uiguy/jquery-bigdialog/master/GPL-LICENSE.txt   
-https://github.com/th3uiguy/jquery-bigdialog/master/MIT-LICENSE.txt
+https://raw.github.com/th3uiguy/jquery-bigdialog/master/GPL-LICENSE.txt   
+https://raw.github.com/th3uiguy/jquery-bigdialog/master/MIT-LICENSE.txt
