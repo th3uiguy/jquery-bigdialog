@@ -3,7 +3,7 @@ jQuery Big Dialog
 By: Spencer Neese   
 Version: 1.0   
 Requires: jQuery UI 1.7+ and jQuery 1.3.2+   
-Demo: http://jsfiddle.net/th3uiguy/z88L7/2/
+Demo: http://jsfiddle.net/th3uiguy/z88L7/
 
 jQuery Big Dialog scales to fit the full size of the screen with widow resize handling built in. It uses the jQuery UI Dialog options plus a few extra:
 
