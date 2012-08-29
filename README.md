@@ -19,7 +19,7 @@ $('<div>Hello World!</div>').bigDialog({
 
 
 ### Options ###
-Below is a list of the options with their default settings.
+Below is a list of the options (in addition to the [jQuery UI Dialog options](http://jqueryui.com/demos/dialog/#options)) that can be passed into `bigDialog` with their default settings.
 
 ```js
 	verticalPadding: 80, //Integer, padding on top and bottom of dialog
