@@ -11,6 +11,7 @@ jQuery Big Dialog scales to fit the full size of the screen with widow resize ha
 ```js
 $('<div>Hello World!</div>').bigDialog({
 	modal: true,
+	scaleIframe: false,
 	buttons: {
 		"Close": function(){ $(this).dialog('close'); }
 	}
