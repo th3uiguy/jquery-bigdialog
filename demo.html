@@ -6,15 +6,18 @@
 	<style type="text/css">
 		body{ font-family: Arial, Verdana, sans-serif }
 	</style>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.23/themes/base/jquery-ui.css" type="text/css" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="jquery.bigDialog.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$('<div id="bigDialog">Hello World!</div>').bigDialog({
 				modal:true,
-				title: "jQuery Big Dialog"
+				title: "jQuery Big Dialog",
+				buttons: {
+					"Close": function(){ $(this).dialog('close'); }
+				}
 			});
 		})
 
