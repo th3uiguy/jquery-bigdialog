@@ -38,12 +38,12 @@ Below is a list of the options (in addition to the [jQuery UI Dialog options](ht
 #### verticalMargin ####
 *type: Integer*   
 *default: 40*   
-Padding on top and bottom of dialog.
+Margin, in pixels, to add to the top and bottom of the dialog.
 	
 #### horizontalMargin ####
 *type: Integer*   
 *default: 40*   
-Padding on left and right.
+Margin, in pixels, to add to the left and right of the dialog.
 
 #### scrollLock ####
 *type: Boolean*   
@@ -53,7 +53,8 @@ Stop parent window from scrolling when dialog is open.
 #### scaleIframe ####
 *type: Boolean*   
 *default: true*   
-If the dialog has an iframe as a child, it will resize the iframe when the dialog is resized.
+If the dialog has an iframe as a child, it will resize the iframe when the dialog is resized when this is set to true.
+
 
 
 
