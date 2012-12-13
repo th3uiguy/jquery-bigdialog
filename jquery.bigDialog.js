@@ -4,7 +4,7 @@
 * @fileoverview Dialog scales to fit the full size of the screen with widow resize handling built in
 * @link https://github.com/th3uiguy/jquery-bigdialog
 * @author Spencer Neese
-* @version 1.5
+* @version 1.6
 * @requires jQuery UI 1.7+ and jQuery 1.3.2+
 * @license jQuery Big Dialog Plugin
 *
@@ -58,10 +58,10 @@
 				if(iframe.size() > 0 && opts.scaleIframe === true){
 					vOffset = 0;
 					vOffset += $self.siblings('.ui-dialog-titlebar').outerHeight();
-					vOffset += $self.siblings('.ui-dialog-buttonpane').outerHeight();
+					vOffset += $self.siblings('.ui-dialog-buttonpane').outerHeight() || 0;
 					vOffset += parseInt($self.css('padding-top')) + parseInt($self.css('padding-bottom'));
 					vOffset += parseInt($self.closest('.ui-dialog').css('padding-top')) + parseInt($self.closest('.ui-dialog').css('padding-bottom'));
-					vOffset += parseInt($self.siblings('.ui-dialog-buttonpane').css('margin-top'));
+					vOffset += parseInt($self.siblings('.ui-dialog-buttonpane').css('margin-top') || 0);
 					iframe.css('height', ($(window).height() - vMargin - vOffset) + 'px');
 					$self.dialog("option", "position", "center");
 				}
