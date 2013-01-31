@@ -4,17 +4,19 @@
 * @fileoverview Dialog scales to fit the full size of the screen with widow resize handling built in
 * @link https://github.com/th3uiguy/jquery-bigdialog
 * @author Spencer Neese
-* @version 1.6
-* @requires jQuery UI 1.7+ and jQuery 1.3.2+
+* @version 2.0
+* @requires jQuery UI 1.9 or 1.10
 * @license jQuery Big Dialog Plugin
 *
 * Copyright 2011, Spencer Neese
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Dual licensed under the MIT and GPL Version 2 licenses.
 * <https://raw.github.com/th3uiguy/jquery-bigdialog/master/GPL-LICENSE.txt> <https://raw.github.com/th3uiguy/jquery-bigdialog/master/MIT-LICENSE.txt>
 */
 
 ;(function($) {
-	$.widget( "ui.bigDialog", {
+	$.widget( "ui.bigDialog", $.ui.dialog, {
+		version: 2.0,
+
 		options: {
 			verticalMargin: 40,
 			horizontalMargin: 40,
@@ -24,15 +26,21 @@
 
 		_create: function(){
 			var opts = this.options;
-			var $self = $(this.element), vOffset;
-			var vMargin = isFinite(opts.verticalMargin)? opts.verticalMargin*2 : 0;
-			var hMargin = isFinite(opts.horizontalMargin)? opts.horizontalMargin*2 : 0;
-			var iframe = $self.children('iframe');
+			var self = this;
+			var $self = this.element;
+			var vMargin = this.vMargin = isFinite(opts.verticalMargin)? opts.verticalMargin*2 : 0;
+			var hMargin = this.hMargin = isFinite(opts.horizontalMargin)? opts.horizontalMargin*2 : 0;
+			this.iframe = $self.children('iframe');
+			this.vOffset = 0;
 
-			if(iframe.size() > 0){
+			if(this.options.scrollLock === true){
+				$(window.document.body).css('overflow', 'hidden');
+			}
+
+			if(this.iframe.size() > 0){
 				opts.height = "auto";
 				if(opts.scaleIframe === true){
-					iframe.css('width', '100%');
+					this.iframe.css('width', '100%');
 					opts.width = $(window).width() - hMargin;
 				}
 				else{
@@ -44,43 +52,55 @@
 				opts.width = $(window).width() - hMargin;
 			}
 
-			$(window).resize(function(){
-				$self.dialog('option', 'width', $(window).width() - hMargin);
-				if(iframe.size() > 0){
-					iframe.css('height', ($(window).height() - vMargin - vOffset) + 'px');
-				}
-				else{
-					$self.dialog('option', 'height', $(window).height() - vMargin);
-				}
+			$(window).bind("resize" + this.eventNamespace, function(event){
+				self.uiDialog.width($(window).width() - hMargin);
+				self._setHeight();
+				self._trigger("resize", event);
 			});
 
-			$self.bind("dialogopen.setHeight", function(){
-				if(iframe.size() > 0 && opts.scaleIframe === true){
-					vOffset = 0;
-					vOffset += $self.siblings('.ui-dialog-titlebar').outerHeight();
-					vOffset += $self.siblings('.ui-dialog-buttonpane').outerHeight() || 0;
-					vOffset += parseInt($self.css('padding-top')) + parseInt($self.css('padding-bottom'));
-					vOffset += parseInt($self.closest('.ui-dialog').css('padding-top')) + parseInt($self.closest('.ui-dialog').css('padding-bottom'));
-					vOffset += parseInt($self.siblings('.ui-dialog-buttonpane').css('margin-top') || 0);
-					iframe.css('height', ($(window).height() - vMargin - vOffset) + 'px');
-					$self.dialog("option", "position", "center");
-				}
-			});
-			
-			if(opts.scrollLock === true){
-				$self.bind("dialogopen.lockscroll", function(){
-					$(window.document.body).css('overflow', 'hidden').find('.ui-widget-overlay').css('width', '100%');;
-				});
-				$self.bind("dialogclose.lockscroll", function(){
-					$(window.document.body).css('overflow', 'auto');
-				});
+			this._super();
+		},
+
+		open: function(){
+			if(this.options.scrollLock === true){
+				$(window.document.body).css('overflow', 'hidden');
 			}
-			
-			$self.dialog(opts);
+
+			this._super();
+
+			var $self = this.element;
+			this.vOffset = 0;
+			this.vOffset += $self.siblings('.ui-dialog-titlebar').outerHeight();
+			this.vOffset += $self.siblings('.ui-dialog-buttonpane').outerHeight() || 0;
+			this.vOffset += parseInt($self.css('padding-top')) + parseInt($self.css('padding-bottom'));
+			this.vOffset += parseInt($self.closest('.ui-dialog').css('padding-top')) + parseInt($self.closest('.ui-dialog').css('padding-bottom'));
+			this.vOffset += parseInt($self.siblings('.ui-dialog-buttonpane').css('margin-top') || 0);
+
+			this.uiDialog.width($(window).width() - this.hMargin);
+			this._setHeight();
+			this._setOption("position", "center");
+		},
+
+		close: function(){
+			if(this.options.scrollLock === true){
+				$(window.document.body).css('overflow', 'auto');
+			}
+
+			this._super();
+		},
+
+		_setHeight: function(){
+			if(this.iframe.size() > 0 && this.options.scaleIframe === true){
+				this.iframe.css('height', ($(window).height() - this.vMargin - this.vOffset) + 'px');
+			}
+			else{
+				this.element.height($(window).height() - this.vMargin - this.vOffset);
+			}
 		},
 
 		destroy: function() {
-			$.Widget.prototype.destroy.call( this );
+			this.element.unbind("dialogcreate.setResize");
+			this._super();
 		}
 	});
 })(jQuery);
