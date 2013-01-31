@@ -99,7 +99,7 @@
 		},
 
 		destroy: function() {
-			this.element.unbind("dialogcreate.setResize");
+			$(window).unbind("resize" + this.eventNamespace);
 			this._super();
 		}
 	});
