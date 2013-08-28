@@ -4,7 +4,7 @@
 * @fileoverview Dialog scales to fit the full size of the screen with widow resize handling built in
 * @link https://github.com/th3uiguy/jquery-bigdialog
 * @author Spencer Neese
-* @version 2.0
+* @version 2.1
 * @requires jQuery UI 1.9 or 1.10
 * @license jQuery Big Dialog Plugin
 *
@@ -15,7 +15,7 @@
 
 ;(function($) {
 	$.widget( "ui.bigDialog", $.ui.dialog, {
-		version: 2.0,
+		version: 2.1,
 
 		options: {
 			verticalMargin: 40,
@@ -27,15 +27,11 @@
 		_create: function(){
 			var opts = this.options;
 			var self = this;
-			var $self = this.element;
+			var $self = this.element.addClass('bigDialog');
 			var vMargin = this.vMargin = isFinite(opts.verticalMargin)? opts.verticalMargin*2 : 0;
 			var hMargin = this.hMargin = isFinite(opts.horizontalMargin)? opts.horizontalMargin*2 : 0;
 			this.iframe = $self.children('iframe');
 			this.vOffset = 0;
-
-			if(this.options.scrollLock === true){
-				$(window.document.body).css('overflow', 'hidden');
-			}
 
 			if(this.iframe.size() > 0){
 				opts.height = "auto";
