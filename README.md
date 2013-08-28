@@ -2,7 +2,7 @@ jQuery Big Dialog
 ====================
 By: Spencer Neese   
 Version: 2.1   
-Requires: jQuery UI 1.9+ and jQuery 1.3.2+   
+Requires: jQuery UI 1.9+   
 Demo: [http://jsfiddle.net/th3uiguy/z88L7/](http://jsfiddle.net/th3uiguy/z88L7/)   
 Git: [https://github.com/th3uiguy/jquery-bigdialog.git](https://github.com/th3uiguy/jquery-bigdialog.git)   
 
