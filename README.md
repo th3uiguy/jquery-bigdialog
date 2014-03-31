@@ -39,7 +39,7 @@ Below is a list of the options (in addition to the [jQuery UI Dialog options](ht
 #### bigDialog ####
 *type: Boolean*   
 *default: false*   
-Set to **true** if you can the dialog to scale to the window size.
+Set to **true** if you want the dialog to scale to the window size.
 	
 #### verticalMargin ####
 *type: Integer*   
