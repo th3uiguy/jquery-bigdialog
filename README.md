@@ -1,7 +1,7 @@
 jQuery Big Dialog
 ====================
 By: Spencer Neese   
-Version: 2.1   
+Version: 2.5   
 Requires: jQuery UI 1.9+   
 Demo: [http://jsfiddle.net/th3uiguy/z88L7/](http://jsfiddle.net/th3uiguy/z88L7/)   
 Git: [https://github.com/th3uiguy/jquery-bigdialog.git](https://github.com/th3uiguy/jquery-bigdialog.git)   
@@ -19,8 +19,9 @@ the [jQuery UI Dialog options](http://jqueryui.com/demos/dialog/#options) plus a
 Example
 ---------------------
 ```js
-$('<div>Hello World!</div>').bigDialog({
+$('<div>Hello World!</div>').dialog({
 	modal: true,
+	bigDialog: true,
 	scaleIframe: false,
 	buttons: {
 		"Close": function(){ $(this).dialog('close'); }
@@ -59,7 +60,7 @@ If the dialog has an iframe as a child, it will resize the iframe when the dialo
 
 
 <br /><br />
-Copyright 2012 (c), Spencer Neese [https://github.com/th3uiguy/](https://github.com/th3uiguy/)   
+Copyright 2014 (c), Spencer Neese [https://github.com/th3uiguy/](https://github.com/th3uiguy/)   
 Dual licensed under the 
 [MIT](https://raw.github.com/th3uiguy/jquery-bigdialog/master/MIT-LICENSE.txt) and 
 [GPL](https://raw.github.com/th3uiguy/jquery-bigdialog/master/GPL-LICENSE.txt) Version 2 licenses.   
