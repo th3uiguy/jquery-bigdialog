@@ -36,6 +36,11 @@ Options
 ---------------------
 Below is a list of the options (in addition to the [jQuery UI Dialog options](http://jqueryui.com/demos/dialog/#options)) that can be passed into `bigDialog` with their default settings.
 
+#### bigDialog ####
+*type: Boolean*   
+*default: false*   
+Set to **true** if you can the dialog to scale to the window size.
+	
 #### verticalMargin ####
 *type: Integer*   
 *default: 40*   
