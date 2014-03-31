@@ -14,13 +14,6 @@
 */
 
 ;(function($) {
-	$.widget( "ui.bigDialog", $.ui.dialog, {
-		init: function(){
-			this.options.bigDialog = true;
-			$(this.element).dialog(this.options);
-		}
-	});
-
 	$.widget( "ui.dialog", $.ui.dialog, {
 		version: 2.5,
 
@@ -111,4 +104,12 @@
 			this._super();
 		}
 	});
+
+	$.widget( "ui.bigDialog", $.ui.dialog, {
+		_create: function(){
+			this.options.bigDialog = true;
+			this._super();
+		}
+	});
+
 })(jQuery);
